@@ -7,7 +7,7 @@ const validateObjectId = require("../middleware/validateObjectId");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", auth, async (req, res) => {
+router.get("/", [auth], async (req, res) => {
   const queryResult = await req.query;
   const questions = await Question.find(queryResult)
     .sort("topicID")
@@ -15,7 +15,7 @@ router.get("/", auth, async (req, res) => {
   res.send(questions);
 });
 
-router.get("/:topicID/:cardID/:questionID", auth, async (req, res) => {
+router.get("/:topicID/:cardID/:questionID", [auth], async (req, res) => {
   const topicID = req.params.topicID;
   const cardID = req.params.cardID;
   const questionID = req.params.questionID;
@@ -34,7 +34,7 @@ router.get("/:topicID/:cardID/:questionID", auth, async (req, res) => {
   res.send(question);
 });
 
-router.get("/:topicID/:cardID", auth, async (req, res) => {
+router.get("/:topicID/:cardID", [auth], async (req, res) => {
   const topicID = req.params.topicID;
   const cardID = req.params.cardID;
 
@@ -51,7 +51,7 @@ router.get("/:topicID/:cardID", auth, async (req, res) => {
   res.send(question);
 });
 
-router.get("/:topicID", auth, async (req, res) => {
+router.get("/:topicID", [auth], async (req, res) => {
   const topicID = req.params.topicID;
 
   const question = await Question.find({

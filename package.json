@@ -29,7 +29,6 @@
     "lodash": "^4.17.11",
     "moment": "^2.20.1",
     "mongoose": "^5.0.2",
-    "multer": "^1.4.2",
     "winston": "^2.4.0",
     "winston-mongodb": "^3.0.0"
   }

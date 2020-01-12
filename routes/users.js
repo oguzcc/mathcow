@@ -1,4 +1,5 @@
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
@@ -13,14 +14,14 @@ router.get("/", [auth, admin], async (req, res) => {
   res.send(users);
 });
 
-router.get("/me", auth, async (req, res) => {
+router.get("/me", [auth], async (req, res) => {
   const user = await User.findById(req.user._id).select(
     "-password -_id -finishedCards._id -__v"
   );
   res.send(user);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

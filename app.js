@@ -1,7 +1,6 @@
 const winston = require("winston");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
-const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
