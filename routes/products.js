@@ -4,9 +4,9 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+//const upload = multer({ dest: "uploads/" });
 
-router.post("/", upload.single("productImage"), (req, res, next) => {
+/* router.post("/", upload.single("productImage"), (req, res, next) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -20,6 +20,6 @@ router.post("/", upload.single("productImage"), (req, res, next) => {
   await product.save();
 
   res.send(product);
-});
+}); */
 
 module.exports = router;
