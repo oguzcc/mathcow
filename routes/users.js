@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/", [auth], async (req, res) => {
   const users = await User.find().select(
-    "-name -email -password -_id -finishedCards._id -__v"
+    "-email -password -finishedCards._id -__v"
   );
   res.send(users);
 });
