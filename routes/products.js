@@ -6,7 +6,17 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 //const upload = multer({ dest: "uploads/" });
 
-/* router.post("/", upload.single("productImage"), (req, res, next) => {
+
+router.get("/", async (req, res) => {
+  const queryResult = await req.query;
+  const products = await product.find(queryResult)
+    .sort("topicID")
+    .select("-_id -__v");
+  res.send(products);
+});
+
+
+router.post("/", upload.single("productImage"), (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -20,6 +30,6 @@ const multer = require("multer");
   await product.save();
 
   res.send(product);
-}); */
+});
 
 module.exports = router;
