@@ -7,9 +7,9 @@ const { User, validate } = require("../models/user");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", [auth, admin], async (req, res) => {
+router.get("/", [auth], async (req, res) => {
   const users = await User.find().select(
-    "-password -_id -finishedCards._id -__v"
+    "-name -email -password -_id -finishedCards._id -__v"
   );
   res.send(users);
 });
