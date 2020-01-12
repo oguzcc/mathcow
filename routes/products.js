@@ -15,8 +15,9 @@ router.get("/", async (req, res) => {
   res.send(products);
 });
 
+//upload.single("productImage"),
 
-router.post("/", upload.single("productImage"), (req, res) => {
+router.post("/", (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
