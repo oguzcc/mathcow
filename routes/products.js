@@ -8,10 +8,7 @@ const multer = require("multer");
 
 
 router.get("/", async (req, res) => {
-  const queryResult = await req.query;
-  const products = await product.find(queryResult)
-    .sort("topicID")
-    .select("-_id -__v");
+  const products = await Product.find();
   res.send(products);
 });
 
