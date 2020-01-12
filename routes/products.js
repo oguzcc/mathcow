@@ -7,10 +7,10 @@ const multer = require("multer");
 //const upload = multer({ dest: "uploads/" });
 
 
-router.get("/", async (req, res) => {
+/* router.get("/", async (req, res) => {
   const products = await Product.find();
   res.send(products);
-});
+}); */
 
 //upload.single("productImage"),
 
