@@ -7,7 +7,7 @@ const validateObjectId = require("../middleware/validateObjectId");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", [auth, admin], async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const queryResult = await req.query;
   const topics = await Topic.find(queryResult)
     .sort("topicID")
@@ -15,7 +15,7 @@ router.get("/", [auth, admin], async (req, res) => {
   res.send(topics);
 });
 
-router.get("/:topicID", [auth, admin], async (req, res) => {
+router.get("/:topicID", auth, async (req, res) => {
   const topicID = req.params.topicID;
 
   const topic = await Topic.find({
