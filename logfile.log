@@ -1,0 +1,7 @@
+{"level":"info","message":"Server has started successfully","timestamp":"2020-01-15T19:55:51.113Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-01-15T19:55:53.172Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-01-15T19:57:52.824Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-01-15T19:57:54.882Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-01-15T19:58:56.271Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-01-15T19:58:58.314Z"}
+{"message":"secretOrPrivateKey must have a value","stack":"Error: secretOrPrivateKey must have a value\n    at Object.module.exports [as sign] (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\jsonwebtoken\\sign.js:107:20)\n    at model.userSchema.methods.generateAuthToken (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\models\\user.js:55:21)\n    at router.post (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\users.js:45:22)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2020-01-15T20:01:32.144Z"}

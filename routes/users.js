@@ -8,9 +8,9 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", [auth], async (req, res) => {
-  const users = await User.find().select(
-    "-email -password -finishedCards._id -__v"
-  );
+  const users = await User.find()
+    .select("-email -password -finishedCards._id -__v")
+    .sort("-points");
   res.send(users);
 });
 

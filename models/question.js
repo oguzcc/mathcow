@@ -29,6 +29,12 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  trainingQuestion: {
+    type: String,
+    required: function() {
+      return this.questionID == "100";
+    }
+  },
   answers: [answerSchema],
   correctNumber: {
     type: Number,
