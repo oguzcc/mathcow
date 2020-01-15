@@ -32,7 +32,7 @@ const questionSchema = new mongoose.Schema({
   trainingQuestion: {
     type: String,
     required: function() {
-      return this.questionID == "100";
+      return (this.questionID = "100");
     }
   },
   answers: [answerSchema],
@@ -73,6 +73,7 @@ function validateQuestion(question) {
     question: Joi.string()
       .min(5)
       .required(),
+    trainingQuestion: Joi.string(),
     answers: Joi.array().required(),
     correctNumber: Joi.number().min(0),
     wrongNumber: Joi.number().min(0),
