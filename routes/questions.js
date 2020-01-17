@@ -113,10 +113,6 @@ router.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
       cardID: req.body.cardID,
       questionID: req.body.questionID,
       question: req.body.question,
-      trainingQuestion: req.body.trainingQuestion,
-      correctNumber: req.body.correctNumber,
-      wrongNumber: req.body.wrongNumber,
-      questionLevel: req.body.questionLevel,
       answers: req.body.answers
     },
     { new: true }
