@@ -102,7 +102,7 @@ router.post("/", [auth, admin], async (req, res) => {
   res.send(question);
 });
 
-router.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
+/* router.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -114,6 +114,36 @@ router.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
       questionID: req.body.questionID,
       question: req.body.question,
       answers: req.body.answers
+    },
+    { new: true }
+  );
+
+  if (!question)
+    return res
+      .status(404)
+      .send("The question with the given ID was not found.");
+
+  res.send(question);
+}); */
+
+router.put("/:topicID/:cardID/:questionID", [auth, admin], async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const topicID = req.params.topicID;
+  const cardID = req.params.cardID;
+  const questionID = req.params.questionID;
+
+  const question = await Question.findOneAndUpdate(
+    { topicID: topicID, cardID: cardID, questionID: questionID },
+    {
+      $set: {
+        topicID: req.body.topicID,
+        cardID: req.body.cardID,
+        questionID: req.body.questionID,
+        question: req.body.question,
+        answers: req.body.answers
+      }
     },
     { new: true }
   );
