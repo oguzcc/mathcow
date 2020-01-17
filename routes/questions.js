@@ -137,7 +137,7 @@ router.put(
     const cardID = req.params.cardID;
     const questionID = req.params.questionID;
 
-    const question = await Question.findOneAndUpdate(
+    const question = await Question.findByIdAndUpdate(
       { topicID: topicID, cardID: cardID, questionID: questionID },
       {
         $set: {
