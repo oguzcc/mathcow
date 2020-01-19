@@ -16,7 +16,7 @@ router.get("/", [auth], async (req, res) => {
 
 router.get("/me", [auth], async (req, res) => {
   const user = await User.findById(req.user._id).select(
-    "-password -_id -finishedCards._id -__v"
+    "-password -finishedCards._id -__v"
   );
   res.send(user);
 });
@@ -43,9 +43,40 @@ router.post("/", async (req, res) => {
         "email",
         "isAdmin",
         "points",
-        "accuracyPercentage"
+        "accuracyPercentage",
+        "finishedCards"
       ])
     );
+});
+
+router.put("/:id", [auth, validateObjectId], async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const user = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      name: req.body.name,
+      points: req.body.points,
+      finishedCards: req.body.finishedCards
+    },
+    { new: true }
+  );
+
+  if (!user)
+    return res.status(404).send("The user with the given ID was not found.");
+
+  res.send(
+    _.pick(user, [
+      "_id",
+      "name",
+      "email",
+      "isAdmin",
+      "points",
+      "accuracyPercentage",
+      "finishedCards"
+    ])
+  );
 });
 
 module.exports = router;

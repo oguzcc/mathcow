@@ -30,8 +30,8 @@ const questionSchema = new mongoose.Schema({
     required: true
   },
   trainingQuestion: {
-    type: String,
-    default: ""
+    type: Array,
+    default: []
   },
   answers: [answerSchema],
   correctNumber: {
@@ -71,7 +71,7 @@ function validateQuestion(question) {
     question: Joi.string()
       .min(5)
       .required(),
-    trainingQuestion: Joi.string(),
+    trainingQuestion: Joi.array(),
     answers: Joi.array().required(),
     correctNumber: Joi.number().min(0),
     wrongNumber: Joi.number().min(0),
