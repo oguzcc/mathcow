@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
     );
 });
 
-router.put("/:id", [auth, validateObjectId], async (req, res) => {
+router.patch("/:id", [auth, validateObjectId], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
