@@ -99,7 +99,8 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
 
   user.finishedCards.forEach(element => {
     if (element == user.body.finishedCards[0]) {
-      return await user.save();
+      await user.save();
+      return;
     }
   });
 
