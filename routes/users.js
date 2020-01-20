@@ -27,7 +27,9 @@ router.post("/", async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
 
-  await user.findOne({ name: req.body.name });
+  user = {};
+
+  user = await User.findOne({ name: req.body.name });
   if (user) return res.status(400).send("This user name is already use.");
 
   user = new User(_.pick(req.body, ["name", "email", "password"]));
