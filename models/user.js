@@ -60,7 +60,10 @@ const userSchema = new mongoose.Schema({
     min: 0,
     get: v => Math.round(v)
   },
-  finishedCards: [finishedCardsSchema]
+  finishedCards: {
+    type: Map,
+    of: finishedCardsSchema
+  }
 });
 
 userSchema.methods.generateAuthToken = function() {
