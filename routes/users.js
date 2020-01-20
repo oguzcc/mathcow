@@ -95,7 +95,7 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
   user.accuracyPercentage =
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
-
+  user.points = user.points + req.body.points;
   user.finishedCards.push(req.body.finishedCards[0]);
 
   await user.save();
