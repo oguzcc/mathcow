@@ -62,7 +62,7 @@ const userSchema = new mongoose.Schema({
   },
   finishedCards: {
     type: Map,
-    of: [finishedCardsSchema]
+    of: { finishedCardsSchema }
   }
 });
 
