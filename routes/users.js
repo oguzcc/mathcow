@@ -44,31 +44,29 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
 
   let user = await User.findById(req.params.id);
 
-  let userCorrectQ = user.correctQuestions;
-  let userWrongQ = user.wrongQuestions;
-  const bodyCorrectQ = req.body.correctQuestions;
-  const bodyWrongQ = req.body.wrongQuestions;
-  let userAccPer = user.accuracyPercentage;
+  if (!user)
+    return res.status(404).send("The user with the given ID was not found.");
 
-  userCorrectQ = userCorrectQ + bodyCorrectQ;
-  userWrongQ = userWrongQ + bodyWrongQ;
-  userAccPer = (userCorrectQ / (userCorrectQ + userWrongQ)) * 100;
+  user.correctQuestions = user.correctQuestions + req.body.correctQuestions;
+  user.wrongQuestions = user.wrongQuestions + req.body.wrongQuestions;
+  user.accuracyPercentage =
+    (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
+    100;
 
-  const user = await User.findByIdAndUpdate(
+  user.save();
+
+  /* const user = await User.findByIdAndUpdate(
     req.params.id,
     {
       name: req.body.name,
       points: req.body.points,
-      correctQuestions: userCorrectQ,
-      wrongQuestions: userWrongQ,
-      accuracyPercentage: userAccPer,
+      correctQuestions: req.body.correctQuestions,
+      wrongQuestions: req.body.wrongQuestions,
+      accuracyPercentage: user.accuracyPercentage,
       finishedCards: req.body.finishedCards
     },
     { new: true }
-  );
-
-  if (!user)
-    return res.status(404).send("The user with the given ID was not found.");
+  ); */
 
   res.send(
     _.pick(user, [
