@@ -59,10 +59,6 @@ const userSchema = new mongoose.Schema({
     default: 0,
     min: 0,
     get: v => Math.round(v)
-  },
-  finishedCards: {
-    type: Map,
-    of: finishedCardsSchema
   }
 });
 
@@ -97,8 +93,7 @@ function validateUser(user) {
     wrongQuestions: Joi.number().min(0),
     accuracyPercentage: Joi.number()
       .min(0)
-      .max(100),
-    finishedCards: Joi.Map()
+      .max(100)
   };
 
   return Joi.validate(user, schema);
