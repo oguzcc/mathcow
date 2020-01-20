@@ -96,7 +96,7 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
 
-  user.finishedCards.push(req.body.finishedCards);
+  user.finishedCards.push(req.body.finishedCards[0]);
 
   await user.save();
 
