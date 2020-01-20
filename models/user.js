@@ -44,10 +44,21 @@ const userSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
-  accuracyPercentage: {
+  correctQuestions: {
     type: Number,
     default: 0,
     min: 0
+  },
+  wrongQuestions: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  accuracyPercentage: {
+    type: Number,
+    default: 0,
+    min: 0,
+    get: v => Math.round(v)
   },
   finishedCards: [finishedCardsSchema]
 });
@@ -79,6 +90,8 @@ function validateUser(user) {
       .required(),
     isAdmin: Joi.boolean(),
     points: Joi.number().min(0),
+    correctQuestions: Joi.number().min(0),
+    wrongQuestions: Joi.number().min(0),
     accuracyPercentage: Joi.number()
       .min(0)
       .max(100),

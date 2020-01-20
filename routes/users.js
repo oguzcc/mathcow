@@ -35,28 +35,33 @@ router.post("/", async (req, res) => {
   const token = user.generateAuthToken();
   res
     .header("x-auth-token", token)
-    .send(
-      _.pick(user, [
-        "_id",
-        "name",
-        "email",
-        "isAdmin",
-        "points",
-        "accuracyPercentage",
-        "finishedCards"
-      ])
-    );
+    .send(_.pick(user, ["_id", "name", "email", "isAdmin"]));
 });
 
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
+  let user = await User.findById(req.params.id);
+
+  let userCorrectQ = user.correctQuestions;
+  let userWrongQ = user.wrongQuestions;
+  const bodyCorrectQ = req.body.correctQuestions;
+  const bodyWrongQ = req.body.wrongQuestions;
+  let userAccPer = user.accuracyPercentage;
+
+  userCorrectQ = userCorrectQ + bodyCorrectQ;
+  userWrongQ = userWrongQ + bodyWrongQ;
+  userAccPer = (userCorrectQ / (userCorrectQ + userWrongQ)) * 100;
+
   const user = await User.findByIdAndUpdate(
     req.params.id,
     {
       name: req.body.name,
       points: req.body.points,
+      correctQuestions: userCorrectQ,
+      wrongQuestions: userWrongQ,
+      accuracyPercentage: userAccPer,
       finishedCards: req.body.finishedCards
     },
     { new: true }
@@ -72,6 +77,8 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
       "email",
       "isAdmin",
       "points",
+      "correctQuestions",
+      "wrongQuestions",
       "accuracyPercentage",
       "finishedCards"
     ])
