@@ -66,7 +66,19 @@ router.put("/:name", [auth], async (req, res) => {
     { new: true }
   );
 
-  res.send(result);
+  res.send(
+    _.pick(result, [
+      "_id",
+      "name",
+      "email",
+      "isAdmin",
+      "points",
+      "correctQuestions",
+      "wrongQuestions",
+      "accuracyPercentage",
+      "finishedCards"
+    ])
+  );
 });
 
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
@@ -83,6 +95,8 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
   user.accuracyPercentage =
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
+
+  user.finishedCards.push(req.body.finishedCards);
 
   await user.save();
 
