@@ -97,8 +97,8 @@ function validateUser(user) {
     wrongQuestions: Joi.number().min(0),
     accuracyPercentage: Joi.number()
       .min(0)
-      .max(100),
-    finishedCards: Joi.array()
+      .max(100)
+    // finishedCards: Joi.Map()
   };
 
   return Joi.validate(user, schema);
