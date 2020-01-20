@@ -48,9 +48,10 @@ router.put("/:name", [auth], async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   let user = await User.findOne({ name: req.params.name });
-
   if (!user)
     return res.status(404).send("The user with the given name was not found.");
+
+  user = {};
 
   user = await User.findOne({ name: req.body.name });
   if (user) return res.status(400).send("This user name is already in use.");
