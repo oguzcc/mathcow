@@ -27,6 +27,9 @@ router.post("/", async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
 
+  await user.findOne({ name: req.body.name });
+  if (user) return res.status(400).send("This user name is already use.");
+
   user = new User(_.pick(req.body, ["name", "email", "password"]));
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
@@ -36,6 +39,36 @@ router.post("/", async (req, res) => {
   res
     .header("x-auth-token", token)
     .send(_.pick(user, ["_id", "name", "email", "isAdmin"]));
+});
+
+router.put("/:name", [auth], async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = await User.findOne({ name: req.params.name });
+
+  if (!user)
+    return res.status(404).send("The user with the given name was not found.");
+
+  user = await User.findOne({ name: req.body.name });
+  if (user) return res.status(400).send("This user name is already in use.");
+
+  user.name = req.body.name;
+  await user.save();
+
+  res.send(
+    _.pick(user, [
+      "_id",
+      "name",
+      "email",
+      "isAdmin",
+      "points",
+      "correctQuestions",
+      "wrongQuestions",
+      "accuracyPercentage",
+      "finishedCards"
+    ])
+  );
 });
 
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
@@ -53,7 +86,7 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
 
-  user.save();
+  await user.save();
 
   /* const user = await User.findByIdAndUpdate(
     req.params.id,
