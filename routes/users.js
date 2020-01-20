@@ -56,10 +56,17 @@ router.put("/:name", [auth], async (req, res) => {
   user = await User.findOne({ name: req.body.name });
   if (user) return res.status(400).send("This user name is already in use.");
 
-  user.name = req.body.name;
-  await user.save();
+  const result = await User.findOneAndUpdate(
+    { name: req.params.name },
+    {
+      $set: {
+        name: req.body.name
+      }
+    },
+    { new: true }
+  );
 
-  res.send(user);
+  res.send(result);
 });
 
 router.put("/:id", [auth, validateObjectId], async (req, res) => {
