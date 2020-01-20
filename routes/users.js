@@ -96,16 +96,14 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
   user.points = user.points + req.body.points;
-  user.finishedCards.push(req.body.finishedCards[0]);
 
-  /* user.finishedCards.forEach(element => {
-    if (element == user.body.finishedCards[0]) {
-      user.save();
-      return;
+  user.finishedCards.forEach(element => {
+    if (element === user.body.finishedCards[0]) {
+      await user.save();
     }
   });
 
-  user.finishedCards.push(req.body.finishedCards[0]); */
+  user.finishedCards.push(req.body.finishedCards[0]);
   await user.save();
 
   /* const user = await User.findByIdAndUpdate(

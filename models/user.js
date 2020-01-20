@@ -60,10 +60,7 @@ const userSchema = new mongoose.Schema({
     min: 0,
     get: v => Math.round(v)
   },
-  finishedCards: {
-    type: Map,
-    of: { finishedCardsSchema }
-  }
+  finishedCards: [finishedCardsSchema]
 });
 
 userSchema.methods.generateAuthToken = function() {
@@ -98,7 +95,7 @@ function validateUser(user) {
     accuracyPercentage: Joi.number()
       .min(0)
       .max(100),
-    finishedCards: Joi.Map()
+    finishedCards: Joi.array()
   };
 
   return Joi.validate(user, schema);
