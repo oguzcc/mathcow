@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email", "isAdmin"]));
 });
 
-router.put("/:name", [auth], async (req, res) => {
+router.put("/name/:name", [auth], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
