@@ -99,14 +99,13 @@ router.put("/:id", [auth, validateObjectId], async (req, res) => {
 
   user.finishedCards.forEach(element => {
     if (element == user.body.finishedCards[0]) {
-      await user.save();
+      user.save();
       return;
     }
   });
 
   user.finishedCards.push(req.body.finishedCards[0]);
   await user.save();
-  
 
   /* const user = await User.findByIdAndUpdate(
     req.params.id,
