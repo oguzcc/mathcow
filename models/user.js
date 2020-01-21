@@ -40,8 +40,7 @@ const userSchema = new mongoose.Schema({
   points: {
     type: Number,
     default: 0,
-    min: 0,
-    get: v => Math.round(v)
+    min: 0
   },
   correctQuestions: {
     type: Number,
@@ -56,7 +55,8 @@ const userSchema = new mongoose.Schema({
   accuracyPercentage: {
     type: Number,
     default: 0,
-    min: 0
+    min: 0,
+    get: v => Math.round(v)
   },
   finishedCards: [finishedCardSchema]
 });
