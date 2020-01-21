@@ -57,8 +57,7 @@ const userSchema = new mongoose.Schema({
   accuracyPercentage: {
     type: Number,
     default: 0,
-    min: 0,
-    get: v => Math.round(v)
+    min: 0
   },
   finishedCards: [finishedCardsSchema]
 });
