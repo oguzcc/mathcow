@@ -1,16 +1,6 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
-
-const cardsSchema = new mongoose.Schema({
-  cardID: {
-    type: String,
-    required: true
-  },
-  cardName: {
-    type: String,
-    required: true
-  }
-});
+const { cardSchema } = require("./card");
 
 const topicSchema = new mongoose.Schema({
   topicID: {
@@ -21,7 +11,7 @@ const topicSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  cards: [cardsSchema]
+  cards: [cardSchema]
 });
 
 const Topic = mongoose.model("Topic", topicSchema);

@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     .send(_.pick(user, ["_id", "name", "email", "isAdmin"]));
 });
 
-router.put("/name/:name", [auth], async (req, res) => {
+router.put("/:name", [auth], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -68,62 +68,6 @@ router.put("/name/:name", [auth], async (req, res) => {
 
   res.send(
     _.pick(result, [
-      "_id",
-      "name",
-      "email",
-      "isAdmin",
-      "points",
-      "correctQuestions",
-      "wrongQuestions",
-      "accuracyPercentage",
-      "finishedCards"
-    ])
-  );
-});
-
-router.put("/:id", [auth, validateObjectId], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
-  let user = await User.findById(req.params.id);
-
-  if (!user)
-    return res.status(404).send("The user with the given ID was not found.");
-
-  user.correctQuestions = user.correctQuestions + req.body.correctQuestions;
-  user.wrongQuestions = user.wrongQuestions + req.body.wrongQuestions;
-  user.accuracyPercentage =
-    (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
-    100;
-  user.points = user.points + req.body.points;
-
-  /*  finishedCardsArray = user.finishedCards;
-  finishedCardsBody = user.body.finishedCards[0];
-
-  finishedCardsArray.forEach(async element => {
-    if (element == user.body.finishedCards[0]) {
-      await user.save();
-    }
-  }); */
-
-  user.finishedCards.push(req.body.finishedCards[0]);
-  await user.save();
-
-  /* const user = await User.findByIdAndUpdate(
-    req.params.id,
-    {
-      name: req.body.name,
-      points: req.body.points,
-      correctQuestions: req.body.correctQuestions,
-      wrongQuestions: req.body.wrongQuestions,
-      accuracyPercentage: user.accuracyPercentage,
-      finishedCards: req.body.finishedCards
-    },
-    { new: true }
-  ); */
-
-  res.send(
-    _.pick(user, [
       "_id",
       "name",
       "email",

@@ -1,18 +1,7 @@
-const config = require("config");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
-
-const finishedCardsSchema = new mongoose.Schema({
-  topicID: {
-    type: String,
-    required: true
-  },
-  cardID: {
-    type: String,
-    required: true
-  }
-});
+const { finishedCardSchema } = require("./finishedCard");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -28,6 +17,10 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255,
     unique: true
+  },
+  lastOnline: {
+    type: Date,
+    default: Date.now
   },
   password: {
     type: String,
@@ -59,7 +52,7 @@ const userSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
-  finishedCards: [finishedCardsSchema]
+  finishedCards: [finishedCardSchema]
 });
 
 userSchema.methods.generateAuthToken = function() {

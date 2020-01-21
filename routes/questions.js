@@ -126,32 +126,6 @@ router.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
   res.send(question);
 });
 
-router.put(
-  "/endCard/:topicID/:cardID/:questionID",
-  [auth],
-  async (req, res) => {
-    const { error } = validate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
-
-    const topicID = req.params.topicID;
-    const cardID = req.params.cardID;
-    const questionID = req.params.questionID;
-
-    const question = await Question.findOne({
-      topicID: topicID,
-      cardID: cardID,
-      questionID: questionID
-    });
-
-    if (!question)
-      return res
-        .status(404)
-        .send("The question with the given ID was not found.");
-
-    res.send(question);
-  }
-);
-
 router.put("/:topicID/:cardID/:questionID", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);

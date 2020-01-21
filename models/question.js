@@ -1,16 +1,6 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
-
-const answerSchema = new mongoose.Schema({
-  answer: {
-    type: String,
-    required: true
-  },
-  isCorrect: {
-    type: Boolean,
-    required: true
-  }
-});
+const { answerSchema } = require("./answer");
 
 const questionSchema = new mongoose.Schema({
   topicID: {
@@ -48,7 +38,7 @@ const questionSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     min: 0,
-    max: 5
+    max: 100
   }
 });
 
@@ -75,7 +65,7 @@ function validateQuestion(question) {
     answers: Joi.array().required(),
     correctNumber: Joi.number().min(0),
     wrongNumber: Joi.number().min(0),
-    questionLevel: Joi.number()
+    questionLevel: Joi.number().min(0)
   };
 
   return Joi.validate(question, schema);
