@@ -77,16 +77,19 @@ function validateUser(user) {
       .min(8)
       .max(50)
       .lowercase()
+      .trim()
       .required(),
     email: Joi.string()
       .min(5)
       .max(255)
       .lowercase()
+      .trim()
       .required()
       .email(),
     password: Joi.string()
       .min(5)
       .max(255)
+      .trim()
       .required(),
     isAdmin: Joi.boolean(),
     points: Joi.number().min(0),
