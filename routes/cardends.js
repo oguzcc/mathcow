@@ -81,7 +81,20 @@ router.post("/", [auth], async (req, res) => {
       ) */
       .run();
 
-    res.send(user);
+    res.send(
+      _.pick(user, [
+        "_id",
+        "name",
+        "email",
+        "isAdmin",
+        "lastOnline",
+        "points",
+        "correctQuestions",
+        "wrongQuestions",
+        "accuracyPercentage",
+        "finishedCards"
+      ])
+    );
   } catch (ex) {
     res.status(500).send("Something failed.");
   }

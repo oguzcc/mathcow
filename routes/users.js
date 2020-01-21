@@ -72,9 +72,9 @@ router.put("/:name", [auth], async (req, res) => {
       "name",
       "email",
       "isAdmin",
+      "lastOnline",
       "points",
       "correctQuestions",
-      "lastOnline",
       "wrongQuestions",
       "accuracyPercentage",
       "finishedCards"
