@@ -74,6 +74,7 @@ router.put("/:name", [auth], async (req, res) => {
       "isAdmin",
       "points",
       "correctQuestions",
+      "lastOnline",
       "wrongQuestions",
       "accuracyPercentage",
       "finishedCards"

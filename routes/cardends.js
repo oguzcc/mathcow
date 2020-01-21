@@ -56,7 +56,8 @@ router.post("/", [auth], async (req, res) => {
             correctQuestions: user.correctQuestions,
             wrongQuestions: user.wrongQuestions,
             points: user.points,
-            accuracyPercentage: user.accuracyPercentage
+            accuracyPercentage: user.accuracyPercentage,
+            lastOnline: Date.now
           },
           $addToSet: {
             finishedCards: req.body.finishedCards[0]
