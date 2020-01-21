@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/", [auth], async (req, res) => {
   const users = await User.find()
-    .select("-email -password -finishedCards._id -__v")
+    .select("-email -_id -password -finishedCards._id -__v")
     .sort("-points");
   res.send(users);
 });
