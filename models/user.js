@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
+    trim: true,
     minlength: 8,
     maxlength: 50
   },
@@ -16,6 +17,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
+    trim: true,
     minlength: 5,
     maxlength: 255,
     unique: true
@@ -27,6 +29,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+    trim: true,
     minlength: 5,
     maxlength: 1024
   },
@@ -37,7 +40,8 @@ const userSchema = new mongoose.Schema({
   points: {
     type: Number,
     default: 0,
-    min: 0
+    min: 0,
+    get: v => Math.round(v)
   },
   correctQuestions: {
     type: Number,
