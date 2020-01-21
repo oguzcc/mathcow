@@ -56,7 +56,8 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     min: 0,
-    get: v => Math.round(v)
+    get: v => Math.round(v),
+    set: v => Math.round(v)
   },
   finishedCards: [finishedCardSchema]
 });
