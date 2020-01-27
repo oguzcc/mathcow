@@ -19,6 +19,9 @@ router.post("/", [auth], async (req, res) => {
   const user = await User.findById(req.body.user_id);
   if (!user) return res.status(400).send("Invalid user.");
 
+  if (req.user._id !== req.body.user_id)
+    return res.status(401).send("Access denied");
+
   user.correctQuestions = user.correctQuestions + req.body.correctQuestions;
   user.wrongQuestions = user.wrongQuestions + req.body.wrongQuestions;
   user.accuracyPercentage =
