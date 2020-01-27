@@ -27,21 +27,21 @@ const cardendSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
-  finishedCards: [finishedCardSchema]
-  //finishedQuestions: [finishedQuestionSchema]
+  finishedCards: [finishedCardSchema],
+  finishedQuestions: [finishedQuestionSchema]
 });
 
 const Cardend = mongoose.model("Cardend", cardendSchema);
 
 function validateCardend(cardend) {
   const schema = {
-    userID: Joi.objectId().required(),
+    user_id: Joi.objectId().required(),
     lastOnline: Joi.date(),
     points: Joi.number(),
     correctQuestions: Joi.number(),
     wrongQuestions: Joi.number(),
-    finishedCards: Joi.array()
-    //finishedQuestions: Joi.array()
+    finishedCards: Joi.array(),
+    finishedQuestions: Joi.array()
   };
 
   return Joi.validate(cardend, schema);

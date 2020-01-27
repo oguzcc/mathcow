@@ -16,13 +16,8 @@ router.post("/", [auth], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const user = await User.findById(req.body.userID);
+  const user = await User.findById(req.body.user_id);
   if (!user) return res.status(400).send("Invalid user.");
-
-  /*   const question = await Question.findById(
-    req.body.finishedQuestions.questionID
-  );
-  if (!question) return res.status(400).send("Invalid question."); */
 
   user.correctQuestions = user.correctQuestions + req.body.correctQuestions;
   user.wrongQuestions = user.wrongQuestions + req.body.wrongQuestions;
@@ -31,20 +26,33 @@ router.post("/", [auth], async (req, res) => {
     100;
   user.points = user.points + req.body.points;
 
-  /* let cardend = new Cardend({
-    user: {
-      _id: user._id,
-      points: user.points,
-      lastOnline: user.lastOnline,
-      correctQuestions: user.correctQuestions,
-      wrongQuestions: user.wrongQuestions
-    },
-    question: {
-      _id: question._id,
-      correctNumber: question.correctNumber,
-      wrongNumber: question.wrongNumber
+  for (let i = 0; i < req.body.finishedCards.length; i++) {
+    if (!_.some(user.finishedCards, req.body.finishedCards[i])) {
+      user.finishedCards.push(req.body.finishedCards[i]);
     }
-  }); */
+  }
+
+  for (let i = 0; i < req.body.finishedQuestions.length; i++) {
+    let question = {};
+    question = await Question.findById(
+      req.body.finishedQuestions[i].question_id
+    );
+    if (req.body.finishedQuestions[i].isCorrect) {
+      question.correctNumber = question.correctNumber + 1;
+      question.questionLevel =
+        (question.correctNumber /
+          (question.correctNumber + question.wrongNumber)) *
+        100;
+      await question.save();
+    } else {
+      question.wrongNumber = question.wrongNumber + 1;
+      question.questionLevel =
+        (question.correctNumber /
+          (question.correctNumber + question.wrongNumber)) *
+        100;
+      await question.save();
+    }
+  }
 
   try {
     new Fawn.Task()
@@ -57,28 +65,11 @@ router.post("/", [auth], async (req, res) => {
             wrongQuestions: user.wrongQuestions,
             points: user.points,
             accuracyPercentage: user.accuracyPercentage,
-            lastOnline: new Date()
-          },
-          $addToSet: {
-            finishedCards: req.body.finishedCards[0]
+            lastOnline: new Date(),
+            finishedCards: user.finishedCards
           }
         }
       )
-      /*       .update(
-        "questions",
-        { _id: question._id },
-        {
-          $inc: {
-            correctNumber: +1
-            correctNumber: question.correctNumber + req.body.correctNumber,
-              wrongNumber: question.wrongNumber + req.body.wrongNumber,
-              questionLevel:
-                (question.correctNumber /
-                  (question.correctNumber + question.wrongNumber)) *
-                100 
-          }
-        }
-      ) */
       .run();
 
     res.send(
@@ -87,6 +78,7 @@ router.post("/", [auth], async (req, res) => {
         "name",
         "email",
         "isAdmin",
+        "isGold",
         "lastOnline",
         "points",
         "correctQuestions",

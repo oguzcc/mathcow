@@ -6,7 +6,8 @@ module.exports = function() {
     .connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useFindAndModify: false
     })
     .then(() => winston.info(`Connected to 3000...`));
 };

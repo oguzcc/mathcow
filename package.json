@@ -20,6 +20,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.2",
     "express-async-errors": "^2.1.0",
+    "express-rate-limit": "^5.0.0",
     "fawn": "^2.1.5",
     "helmet": "^3.21.0",
     "http": "0.0.0",

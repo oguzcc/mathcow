@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  isGold: {
+    type: Boolean,
+    default: false
+  },
   points: {
     type: Number,
     default: 0,
@@ -62,7 +66,12 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
-    { _id: this._id, email: this.email, isAdmin: this.isAdmin },
+    {
+      _id: this._id,
+      email: this.email,
+      isAdmin: this.isAdmin,
+      isGold: this.isGold
+    },
     process.env.JWT_PRIVATE_KEY
   );
   return token;
@@ -91,6 +100,7 @@ function validateUser(user) {
       .trim()
       .required(),
     isAdmin: Joi.boolean(),
+    isGold: Joi.boolean(),
     points: Joi.number().min(0),
     correctQuestions: Joi.number().min(0),
     wrongQuestions: Joi.number().min(0),

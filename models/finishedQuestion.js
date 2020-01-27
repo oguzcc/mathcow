@@ -14,7 +14,7 @@ const finishedQuestionSchema = new mongoose.Schema({
 
 function validateFinishedQuestion(finishedQuestion) {
   const schema = {
-    questionID: Joi.objectId().required(),
+    question_id: Joi.objectId().required(),
     isCorrect: Joi.boolean()
   };
 
