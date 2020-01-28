@@ -1,4 +1,4 @@
-const { Cardend, validate } = require("../models/cardend");
+const { validate } = require("../models/cardend");
 const { User } = require("../models/user");
 const { Question } = require("../models/question");
 const admin = require("../middleware/admin");
