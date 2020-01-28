@@ -1,8 +1,6 @@
 const { Setting, validate } = require("../models/setting");
 const admin = require("../middleware/admin");
 const auth = require("../middleware/auth");
-const _ = require("lodash");
-const winston = require("winston");
 const express = require("express");
 const router = express.Router();
 

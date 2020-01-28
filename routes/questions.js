@@ -11,7 +11,7 @@ router.get("/", [auth], async (req, res) => {
   const queryResult = await req.query;
   const questions = await Question.find(queryResult)
     .sort("topicID")
-    .select("-_id -answers._id -__v");
+    .select("-answers._id -__v");
   res.send(questions);
 });
 
@@ -24,7 +24,7 @@ router.get("/:topicID/:cardID/:questionID", [auth], async (req, res) => {
     topicID: topicID,
     cardID: cardID,
     questionID: questionID
-  }).select("-_id -answers._id -__v");
+  }).select("-answers._id -__v");
 
   if (!question)
     return res
@@ -41,7 +41,7 @@ router.get("/:topicID/:cardID", [auth], async (req, res) => {
   const question = await Question.find({
     topicID: topicID,
     cardID: cardID
-  }).select("-_id -answers._id -__v");
+  }).select("-answers._id -__v");
 
   if (!question)
     return res
@@ -56,7 +56,7 @@ router.get("/:topicID", [auth], async (req, res) => {
 
   const question = await Question.find({
     topicID: topicID
-  }).select("-_id -answers._id -__v");
+  }).select("-answers._id -__v");
 
   if (!question)
     return res
@@ -68,7 +68,7 @@ router.get("/:topicID", [auth], async (req, res) => {
 
 router.get("/:id", [auth, validateObjectId], async (req, res) => {
   const question = await Question.findById(req.params.id).select(
-    "-_id -answers._id -__v"
+    "-answers._id -__v"
   );
 
   if (!question)
