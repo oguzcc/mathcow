@@ -1,0 +1,153 @@
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T12:41:16.367Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T12:41:16.423Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T12:45:18.520Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T12:45:18.588Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T12:54:02.255Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T12:54:02.310Z"}
+{"message":"Cannot read property 'correctInCard' of undefined","stack":"TypeError: Cannot read property 'correctInCard' of undefined\n    at router.post (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\cardends.js:47:32)","level":"error","timestamp":"2020-02-01T12:54:04.905Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:00:58.334Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:00:58.406Z"}
+{"message":"Cannot read property 'correctInCard' of undefined","stack":"TypeError: Cannot read property 'correctInCard' of undefined\n    at router.post (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\cardends.js:36:32)","level":"error","timestamp":"2020-02-01T13:01:26.474Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:05:07.787Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:05:07.849Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:06:58.215Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:06:58.273Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:09:09.067Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:09:09.143Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:12:34.332Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:12:34.385Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:19:36.289Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:19:36.345Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:22:38.370Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:22:38.452Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:23:26.963Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:23:27.025Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:24:23.622Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:24:23.678Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:25:02.117Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:25:02.175Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:26:32.619Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:26:32.675Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:28:16.849Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:28:16.909Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:28:28.401Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:28:28.458Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:29:07.133Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:29:07.192Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:29:37.256Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:29:37.313Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:30:00.431Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:30:00.484Z"}
+{"message":"topicID is not defined","stack":"ReferenceError: topicID is not defined\n    at router.post (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\cardends.js:40:36)","level":"error","timestamp":"2020-02-01T13:30:03.945Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:30:57.391Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:30:57.453Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:31:15.655Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:31:15.748Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:34:22.527Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:34:22.587Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:35:54.258Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:35:54.314Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:37:22.039Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:37:22.103Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:38:15.234Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:38:15.299Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:42:12.066Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:42:12.129Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:42:16.927Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:42:17.010Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:42:29.872Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:42:29.935Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:43:34.244Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:43:34.320Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:56:44.105Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:56:44.172Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:56:51.528Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:56:51.584Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T13:57:07.036Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T13:57:07.096Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:13:57.264Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:13:57.322Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:23:54.665Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:23:54.722Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:31:49.252Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:31:49.307Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:33:16.573Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:33:16.638Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:35:10.172Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:35:10.230Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:35:36.315Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:35:36.370Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:36:11.598Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:36:11.679Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:36:39.200Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:36:39.294Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:37:21.566Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:37:21.626Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:38:04.008Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:38:04.068Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:38:35.639Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:38:35.715Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:38:44.378Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:38:44.442Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:40:14.852Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:40:14.927Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:40:32.646Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:40:32.735Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:51:11.350Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:51:11.429Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:56:02.987Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:56:03.048Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:57:58.177Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:57:58.245Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:58:16.210Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:58:16.269Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T14:58:29.896Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T14:58:29.959Z"}
+{"message":"rest is not iterable","stack":"TypeError: rest is not iterable\n    at router.put (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\rests.js:20:19)\n    at C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\middleware\\admin.js:8:3)\n    at C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\middleware\\auth.js:10:5)\n    at C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at param (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\node_modules\\express\\lib\\router\\index.js:174:3)","level":"error","timestamp":"2020-02-01T15:05:10.038Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:05:59.920Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:05:59.991Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:06:16.627Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:06:16.705Z"}
+{"message":"Cannot read property 'save' of null","stack":"TypeError: Cannot read property 'save' of null\n    at router.put (C:\\Users\\oguzc\\Documents\\Code\\VSCodeProjects\\mathcow\\routes\\rests.js:36:14)","level":"error","timestamp":"2020-02-01T15:06:21.581Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:07:06.104Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:07:06.163Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:08:02.758Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:08:02.831Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:12:32.284Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:12:32.344Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:14:35.148Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:14:35.205Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:15:09.425Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:15:09.495Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:16:14.309Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:16:14.369Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:22:44.252Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:22:44.316Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:23:14.357Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:23:14.438Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-01T15:23:54.322Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-01T15:23:54.382Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:40:03.921Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:40:03.973Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:50:32.722Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:50:32.780Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:52:51.871Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:52:51.928Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:56:12.129Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:56:12.190Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:59:06.798Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:59:06.855Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:59:24.053Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:59:24.112Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T08:59:33.058Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T08:59:33.124Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T09:01:46.056Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T09:01:46.117Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T09:08:19.815Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T09:08:19.870Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T09:11:27.654Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T09:11:27.715Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T09:20:22.403Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T09:20:22.456Z"}
+{"level":"info","message":"Server has started successfully","timestamp":"2020-02-02T09:20:36.098Z"}
+{"level":"info","message":"Connected to 3000...","timestamp":"2020-02-02T09:20:36.158Z"}

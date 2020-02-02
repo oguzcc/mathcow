@@ -19,6 +19,10 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  layoutType: {
+    type: Array,
+    required: true
+  },
   trainingQuestion: {
     type: Array,
     default: []
@@ -61,6 +65,7 @@ function validateQuestion(question) {
     question: Joi.string()
       .min(5)
       .required(),
+    layoutType: Joi.array().required(),
     trainingQuestion: Joi.array(),
     answers: Joi.array().required(),
     correctNumber: Joi.number().min(0),

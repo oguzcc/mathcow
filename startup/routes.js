@@ -3,6 +3,7 @@ const questions = require("../routes/questions");
 const topics = require("../routes/topics");
 const users = require("../routes/users");
 const cardends = require("../routes/cardends");
+const rests = require("../routes/rests");
 const settings = require("../routes/settings");
 const auth = require("../routes/auth");
 const error = require("../middleware/error");
@@ -13,6 +14,7 @@ module.exports = function(app) {
   app.use("/api/topics", topics);
   app.use("/api/users", users);
   app.use("/api/cardends", cardends);
+  app.use("/api/rests", rests);
   app.use("/api/settings", settings);
   app.use("/api/auth", auth);
   app.use(error);

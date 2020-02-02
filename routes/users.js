@@ -103,6 +103,7 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
       "email",
       "isAdmin",
       "isGold",
+      "location",
       "lastOnline",
       "points",
       "correctQuestions",

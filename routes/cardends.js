@@ -28,12 +28,32 @@ router.post("/", [auth], async (req, res) => {
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
   user.points = user.points + req.body.points;
+  user.coins = user.coins + req.body.coins;
 
-  for (let i = 0; i < req.body.finishedCards.length; i++) {
+  if (!_.some(user.finishedCards, req.body.finishedCards[0])) {
+    user.finishedCards.push(req.body.finishedCards[0]);
+  }
+
+  let iofc = _.findIndex(user.finishedCards, {
+    topicID: req.body.finishedCards[0].topicID,
+    cardID: req.body.finishedCards[0].cardID
+  });
+
+  user.finishedCards[iofc].correctInCard =
+    user.finishedCards[iofc].correctInCard + req.body.correctQuestions;
+  user.finishedCards[iofc].wrongInCard =
+    user.finishedCards[iofc].wrongInCard + req.body.wrongQuestions;
+  user.finishedCards[iofc].accuracyPercentageInCard =
+    (user.finishedCards[iofc].correctInCard /
+      (user.finishedCards[iofc].correctInCard +
+        user.finishedCards[iofc].wrongInCard)) *
+    100;
+
+  /* for (let i = 0; i < req.body.finishedCards.length; i++) {
     if (!_.some(user.finishedCards, req.body.finishedCards[i])) {
       user.finishedCards.push(req.body.finishedCards[i]);
     }
-  }
+  } */
 
   for (let i = 0; i < req.body.finishedQuestions.length; i++) {
     let question = {};
@@ -67,6 +87,7 @@ router.post("/", [auth], async (req, res) => {
             correctQuestions: user.correctQuestions,
             wrongQuestions: user.wrongQuestions,
             points: user.points,
+            coins: user.coins,
             accuracyPercentage: user.accuracyPercentage,
             lastOnline: new Date(),
             finishedCards: user.finishedCards
@@ -84,6 +105,7 @@ router.post("/", [auth], async (req, res) => {
         "isGold",
         "lastOnline",
         "points",
+        "coins",
         "correctQuestions",
         "wrongQuestions",
         "accuracyPercentage",

@@ -89,6 +89,7 @@ router.post("/", [auth, admin], async (req, res) => {
       "cardID",
       "questionID",
       "question",
+      "layoutType",
       "trainingQuestion",
       "answers"
     ])
@@ -110,6 +111,7 @@ router.patch("/:id", [auth, admin, validateObjectId], async (req, res) => {
       cardID: req.body.cardID,
       questionID: req.body.questionID,
       question: req.body.question,
+      layoutType: req.body.layoutType,
       answers: req.body.answers
     },
     { new: true }
@@ -142,6 +144,7 @@ router.patch(
           cardID: req.body.cardID,
           questionID: req.body.questionID,
           question: req.body.question,
+          layoutType: req.body.layoutType,
           answers: req.body.answers
         }
       },

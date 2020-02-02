@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  location: {
+    type: String,
+    default: ""
+  },
   password: {
     type: String,
     required: true,
@@ -42,6 +46,11 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   points: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  coins: {
     type: Number,
     default: 0,
     min: 0
@@ -102,6 +111,7 @@ function validateUser(user) {
     isAdmin: Joi.boolean(),
     isGold: Joi.boolean(),
     points: Joi.number().min(0),
+    coins: Joi.number().min(0),
     correctQuestions: Joi.number().min(0),
     wrongQuestions: Joi.number().min(0),
     accuracyPercentage: Joi.number()

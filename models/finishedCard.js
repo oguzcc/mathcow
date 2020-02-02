@@ -9,6 +9,21 @@ const finishedCardSchema = new mongoose.Schema({
   cardID: {
     type: String,
     required: true
+  },
+  correctInCard: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  wrongInCard: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  accuracyPercentageInCard: {
+    type: Number,
+    default: 0,
+    min: 0
   }
 });
 
@@ -21,7 +36,12 @@ function validateFinishedCard(finishedCard) {
     cardID: Joi.string()
       .min(3)
       .max(3)
-      .required()
+      .required(),
+    correctInCard: Joi.number().min(0),
+    wrongInCard: Joi.number().min(0),
+    accuracyPercentageInCard: Joi.number()
+      .min(0)
+      .max(100)
   };
 
   return Joi.validate(finishedCard, schema);

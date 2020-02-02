@@ -17,6 +17,11 @@ const cardendSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
+  coins: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
   correctQuestions: {
     type: Number,
     default: 0,
@@ -37,9 +42,10 @@ function validateCardend(cardend) {
   const schema = {
     user_id: Joi.objectId().required(),
     lastOnline: Joi.date(),
-    points: Joi.number(),
-    correctQuestions: Joi.number(),
-    wrongQuestions: Joi.number(),
+    points: Joi.number().min(0),
+    coins: Joi.number().min(0),
+    correctQuestions: Joi.number().min(0),
+    wrongQuestions: Joi.number().min(0),
     finishedCards: Joi.array(),
     finishedQuestions: Joi.array()
   };
