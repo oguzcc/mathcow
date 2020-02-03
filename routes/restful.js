@@ -58,7 +58,7 @@ router.put(
           a05 = `${svgBegin}${ii + jj + kk + 3}${svgEnd}`;
         } else if (typeQ == 2) {
           if (i > j) {
-            q00 = `${svgBegin}${j} - ${i}${svgEnd}`;
+            q00 = `${svgBegin}${i} - ${j}${svgEnd}`;
             ii = parseInt(i);
             jj = parseInt(j);
             a00 = `${svgBegin}${ii - jj}${svgEnd}`;
