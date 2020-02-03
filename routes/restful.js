@@ -57,15 +57,17 @@ router.put(
           a04 = `${svgBegin}${ii + jj + kk + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + kk + 3}${svgEnd}`;
         } else if (typeQ == 2) {
-          q00 = `${svgBegin}${j} - ${i}${svgEnd}`;
-          ii = parseInt(i);
-          jj = parseInt(j);
-          a00 = `${svgBegin}${ii - jj}${svgEnd}`;
-          a01 = `${svgBegin}${ii - jj - 1}${svgEnd}`;
-          a02 = `${svgBegin}${ii - jj + 1}${svgEnd}`;
-          a03 = `${svgBegin}${ii - jj + 2}${svgEnd}`;
-          a04 = `${svgBegin}${ii - jj + 3}${svgEnd}`;
-          a05 = `${svgBegin}${ii - jj + 4}${svgEnd}`;
+          if (i > j) {
+            q00 = `${svgBegin}${j} - ${i}${svgEnd}`;
+            ii = parseInt(i);
+            jj = parseInt(j);
+            a00 = `${svgBegin}${ii - jj}${svgEnd}`;
+            a01 = `${svgBegin}${ii - jj - 1}${svgEnd}`;
+            a02 = `${svgBegin}${ii - jj + 1}${svgEnd}`;
+            a03 = `${svgBegin}${ii - jj + 2}${svgEnd}`;
+            a04 = `${svgBegin}${ii - jj + 3}${svgEnd}`;
+            a05 = `${svgBegin}${ii - jj + 4}${svgEnd}`;
+          }
         } else if (typeQ == 3) {
           q00 = `${svgBegin}${j} x ${i}${svgEnd}`;
           ii = parseInt(i);
