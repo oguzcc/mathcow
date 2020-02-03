@@ -45,6 +45,17 @@ router.put(
           a03 = `${svgBegin}${ii + jj + 1}${svgEnd}`;
           a04 = `${svgBegin}${ii + jj + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + 3}${svgEnd}`;
+        } else if (typeQ == 11) {
+          let ii = Math.round(Math.random() * 10);
+          let jj = Math.round(Math.random() * 10);
+          let kk = Math.round(Math.random() * 10);
+          q00 = `${svgBegin}${ii} + ${jj} + ${kk}${svgEnd}`;
+          a00 = `${svgBegin}${ii + jj + kk}${svgEnd}`;
+          a01 = `${svgBegin}${ii + jj + kk - 2}${svgEnd}`;
+          a02 = `${svgBegin}${ii + jj + kk - 1}${svgEnd}`;
+          a03 = `${svgBegin}${ii + jj + kk + 1}${svgEnd}`;
+          a04 = `${svgBegin}${ii + jj + kk + 2}${svgEnd}`;
+          a05 = `${svgBegin}${ii + jj + kk + 3}${svgEnd}`;
         } else if (typeQ == 2) {
           q00 = `${svgBegin}${j} - ${i}${svgEnd}`;
           ii = parseInt(i);
