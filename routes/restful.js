@@ -21,6 +21,9 @@ router.put(
     const trainingQuestion = [];
     const layoutType = [0, 1, 2];
 
+    let ii;
+    let jj;
+    let kk;
     let q00;
     let a00;
     let a01;
@@ -37,8 +40,8 @@ router.put(
       for (let j = beginj; j < endj; j++) {
         if (typeQ == 1) {
           q00 = `${svgBegin}${i} + ${j}${svgEnd}`;
-          let ii = parseInt(i);
-          let jj = parseInt(j);
+          ii = parseInt(i);
+          jj = parseInt(j);
           a00 = `${svgBegin}${ii + jj}${svgEnd}`;
           a01 = `${svgBegin}${ii + jj - 2}${svgEnd}`;
           a02 = `${svgBegin}${ii + jj - 1}${svgEnd}`;
@@ -46,9 +49,9 @@ router.put(
           a04 = `${svgBegin}${ii + jj + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + 3}${svgEnd}`;
         } else if (typeQ == 11) {
-          let ii = Math.round(Math.random() * 10 + 1);
-          let jj = Math.round(Math.random() * 10 + 1);
-          let kk = Math.round(Math.random() * 10 + 1);
+          ii = Math.round(Math.random() * 10 + 1);
+          jj = Math.round(Math.random() * 10 + 1);
+          kk = Math.round(Math.random() * 10 + 1);
           q00 = `${svgBegin}${ii} + ${jj} + ${kk}${svgEnd}`;
           a00 = `${svgBegin}${ii + jj + kk}${svgEnd}`;
           a01 = `${svgBegin}${ii + jj + kk - 2}${svgEnd}`;
