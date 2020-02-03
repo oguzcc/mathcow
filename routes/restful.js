@@ -46,9 +46,9 @@ router.put(
           a04 = `${svgBegin}${ii + jj + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + 3}${svgEnd}`;
         } else if (typeQ == 11) {
-          let ii = Math.round(Math.random() * 10);
-          let jj = Math.round(Math.random() * 10);
-          let kk = Math.round(Math.random() * 10);
+          let ii = Math.round(Math.random() * 10 + 1);
+          let jj = Math.round(Math.random() * 10 + 1);
+          let kk = Math.round(Math.random() * 10 + 1);
           q00 = `${svgBegin}${ii} + ${jj} + ${kk}${svgEnd}`;
           a00 = `${svgBegin}${ii + jj + kk}${svgEnd}`;
           a01 = `${svgBegin}${ii + jj + kk - 2}${svgEnd}`;
