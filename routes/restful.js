@@ -32,6 +32,7 @@ router.put(
     let a04;
     let a05;
     let answers;
+    let rand;
 
     const svgBegin =
       "<svg viewBox='0 0 64 64'><text x='32' y='40' text-anchor='middle' font-size='32' fill='#FFFFFF' font-family='RobotoMono'>";
@@ -39,6 +40,7 @@ router.put(
     for (let i = begini; i < endi; i++) {
       for (let j = beginj; j < endj; j++) {
         if (typeQ == 1) {
+          // toplama -> a + b
           q00 = `${svgBegin}${i} + ${j}${svgEnd}`;
           ii = parseInt(i);
           jj = parseInt(j);
@@ -49,6 +51,7 @@ router.put(
           a04 = `${svgBegin}${ii + jj + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + 3}${svgEnd}`;
         } else if (typeQ == 11) {
+          // toplama -> a + b + c
           ii = Math.round(Math.random() * 10 + 1);
           jj = Math.round(Math.random() * 10 + 1);
           kk = Math.round(Math.random() * 10 + 1);
@@ -59,7 +62,24 @@ router.put(
           a03 = `${svgBegin}${ii + jj + kk + 1}${svgEnd}`;
           a04 = `${svgBegin}${ii + jj + kk + 2}${svgEnd}`;
           a05 = `${svgBegin}${ii + jj + kk + 3}${svgEnd}`;
+        } else if (typeQ == 12) {
+          // toplama -> a + ? = c or ? + b = c
+          rand = Math.random();
+          ii = parseInt(i);
+          jj = parseInt(j);
+          if (rand < 0.5) {
+            q00 = `${svgBegin}${i} + ? = ${ii + jj}${svgEnd}`;
+          } else {
+            q00 = `${svgBegin}? + ${i} = ${ii + jj}${svgEnd}`;
+          }
+          a00 = `${svgBegin}${jj}${svgEnd}`;
+          a01 = `${svgBegin}${jj - 2}${svgEnd}`;
+          a02 = `${svgBegin}${jj - 1}${svgEnd}`;
+          a03 = `${svgBegin}${jj + 1}${svgEnd}`;
+          a04 = `${svgBegin}${jj + 2}${svgEnd}`;
+          a05 = `${svgBegin}${jj + 3}${svgEnd}`;
         } else if (typeQ == 2) {
+          // cikarma
           if (i > j) {
             q00 = `${svgBegin}${i} - ${j}${svgEnd}`;
             ii = parseInt(i);
@@ -73,7 +93,38 @@ router.put(
           } else {
             continue;
           }
+        } else if (typeQ == 21) {
+          // cikarma a - ? = c
+          if (i > j) {
+            ii = parseInt(i);
+            jj = parseInt(j);
+            q00 = `${svgBegin}${i} - ? = ${ii - jj}${svgEnd}`;
+            a00 = `${svgBegin}${jj}${svgEnd}`;
+            a01 = `${svgBegin}${jj - 1}${svgEnd}`;
+            a02 = `${svgBegin}${jj + 1}${svgEnd}`;
+            a03 = `${svgBegin}${jj + 2}${svgEnd}`;
+            a04 = `${svgBegin}${jj + 3}${svgEnd}`;
+            a05 = `${svgBegin}${jj + 4}${svgEnd}`;
+          } else {
+            continue;
+          }
+        } else if (typeQ == 22) {
+          // cikarma ? - b = c
+          if (i > j) {
+            ii = parseInt(i);
+            jj = parseInt(j);
+            q00 = `${svgBegin}? - ${j} = ${ii - jj}${svgEnd}`;
+            a00 = `${svgBegin}${ii}${svgEnd}`;
+            a01 = `${svgBegin}${ii - 1}${svgEnd}`;
+            a02 = `${svgBegin}${ii + 1}${svgEnd}`;
+            a03 = `${svgBegin}${ii + 2}${svgEnd}`;
+            a04 = `${svgBegin}${ii + 3}${svgEnd}`;
+            a05 = `${svgBegin}${ii + 4}${svgEnd}`;
+          } else {
+            continue;
+          }
         } else if (typeQ == 3) {
+          // carpma
           q00 = `${svgBegin}${j} x ${i}${svgEnd}`;
           ii = parseInt(i);
           jj = parseInt(j);
