@@ -11,3 +11,6 @@ module.exports = function() {
     })
     .then(() => winston.info(`Connected to 3000...`));
 };
+
+// mongodb://localhost:27017/mathcowDB
+// process.env.DB_URL

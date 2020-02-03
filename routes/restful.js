@@ -70,6 +70,8 @@ router.put(
             a03 = `${svgBegin}${ii - jj + 2}${svgEnd}`;
             a04 = `${svgBegin}${ii - jj + 3}${svgEnd}`;
             a05 = `${svgBegin}${ii - jj + 4}${svgEnd}`;
+          } else {
+            continue;
           }
         } else if (typeQ == 3) {
           q00 = `${svgBegin}${j} x ${i}${svgEnd}`;
