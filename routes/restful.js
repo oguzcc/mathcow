@@ -63,7 +63,7 @@ router.put(
           ii = Math.round(Math.random() * 10 + 1);
           jj = Math.round(Math.random() * 10 + 1);
           kk = Math.round(Math.random() * 10 + 1);
-          q00 = `${svgBegin}${ii} + ${jj} + ${kk}${svgEnd}`;
+          q00 = `${svgBegin}${ii}+${jj}+${kk}${svgEnd}`;
           a00 = `${svgBegin}${ii + jj + kk}${svgEnd}`;
           a01 = `${svgBegin}${ii + jj + kk - 2}${svgEnd}`;
           a02 = `${svgBegin}${ii + jj + kk - 1}${svgEnd}`;
