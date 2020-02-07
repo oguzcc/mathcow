@@ -1,10 +1,8 @@
 const { validate } = require("../models/cardend");
 const { User } = require("../models/user");
 const { Question } = require("../models/question");
-const admin = require("../middleware/admin");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
-const validateObjectId = require("../middleware/validateObjectId");
 const mongoose = require("mongoose");
 const Fawn = require("fawn");
 const express = require("express");
@@ -22,27 +20,33 @@ router.post("/", [auth], async (req, res) => {
   if (req.user._id !== req.body.user_id)
     return res.status(401).send("Access denied");
 
-  user.correctQuestions = user.correctQuestions + req.body.correctQuestions;
-  user.wrongQuestions = user.wrongQuestions + req.body.wrongQuestions;
+  const remainingTime = req.body.remainingTime;
+  const bodyCQ = req.body.correctQuestions;
+  const bodyWQ = req.body.wrongQuestions;
+  const bodyFC0 = req.body.finishedCards[0];
+
+  user.correctQuestions = user.correctQuestions + bodyCQ;
+  user.wrongQuestions = user.wrongQuestions + bodyWQ;
   user.accuracyPercentage =
     (user.correctQuestions / (user.correctQuestions + user.wrongQuestions)) *
     100;
-  user.points = user.points + req.body.points;
-  user.coins = user.coins + req.body.coins;
+  user.points = user.points + remainingTime;
+  user.coins = user.coins + remainingTime / 2;
+  user.level = user.level + user.points;
 
-  if (!_.some(user.finishedCards, req.body.finishedCards[0])) {
-    user.finishedCards.push(req.body.finishedCards[0]);
+  if (!_.some(user.finishedCards, bodyFC0)) {
+    user.finishedCards.push(bodyFC0);
   }
 
   let iofc = _.findIndex(user.finishedCards, {
-    topicID: req.body.finishedCards[0].topicID,
-    cardID: req.body.finishedCards[0].cardID
+    topicID: bodyFC0.topicID,
+    cardID: bodyFC0.cardID
   });
 
   user.finishedCards[iofc].correctInCard =
-    user.finishedCards[iofc].correctInCard + req.body.correctQuestions;
+    user.finishedCards[iofc].correctInCard + bodyCQ;
   user.finishedCards[iofc].wrongInCard =
-    user.finishedCards[iofc].wrongInCard + req.body.wrongQuestions;
+    user.finishedCards[iofc].wrongInCard + bodyWQ;
   user.finishedCards[iofc].accuracyPercentageInCard =
     (user.finishedCards[iofc].correctInCard /
       (user.finishedCards[iofc].correctInCard +
@@ -88,6 +92,7 @@ router.post("/", [auth], async (req, res) => {
             wrongQuestions: user.wrongQuestions,
             points: user.points,
             coins: user.coins,
+            level: user.level,
             accuracyPercentage: user.accuracyPercentage,
             lastOnline: new Date(),
             finishedCards: user.finishedCards
@@ -106,6 +111,7 @@ router.post("/", [auth], async (req, res) => {
         "lastOnline",
         "points",
         "coins",
+        "level",
         "correctQuestions",
         "wrongQuestions",
         "accuracyPercentage",

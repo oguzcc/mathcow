@@ -55,6 +55,11 @@ const userSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
+  level: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
   correctQuestions: {
     type: Number,
     default: 0,
@@ -77,6 +82,7 @@ userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     {
       _id: this._id,
+      name: this.name,
       email: this.email,
       isAdmin: this.isAdmin,
       isGold: this.isGold
@@ -112,6 +118,7 @@ function validateUser(user) {
     isGold: Joi.boolean(),
     points: Joi.number().min(0),
     coins: Joi.number().min(0),
+    level: Joi.number().min(0),
     correctQuestions: Joi.number().min(0),
     wrongQuestions: Joi.number().min(0),
     accuracyPercentage: Joi.number()

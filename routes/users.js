@@ -75,11 +75,13 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
 
   user = {};
   user = await User.findOne({ name: req.body.name });
-  if (user) return res.status(400).send("This user name is already in use.");
+  if (user && user.name !== req.user.name)
+    return res.status(400).send("This user name is already in use.");
 
   user = {};
   user = await User.findOne({ email: req.body.email });
-  if (user) return res.status(400).send("This email is already in use.");
+  if (user && user.email !== req.user.email)
+    return res.status(400).send("This email is already in use.");
 
   const salt = await bcrypt.genSalt(10);
   const password = await bcrypt.hash(req.body.password, salt);
@@ -96,22 +98,10 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
     { new: true }
   );
 
-  res.send(
-    _.pick(result, [
-      "_id",
-      "name",
-      "email",
-      "isAdmin",
-      "isGold",
-      "location",
-      "lastOnline",
-      "points",
-      "correctQuestions",
-      "wrongQuestions",
-      "accuracyPercentage",
-      "finishedCards"
-    ])
-  );
+  const token = result.generateAuthToken();
+  res
+    .header("x-auth-token", token)
+    .send(_.pick(result, ["_id", "name", "email", "isAdmin", "isGold"]));
 });
 
 module.exports = router;

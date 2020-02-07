@@ -15,12 +15,20 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  question: {
-    type: String,
+  layoutType: {
+    type: Number,
     required: true
   },
-  layoutType: {
-    type: Array,
+  semanticQuestion: {
+    type: String,
+    default: ""
+  },
+  semanticAnswer: {
+    type: String,
+    default: ""
+  },
+  question: {
+    type: String,
     required: true
   },
   trainingQuestion: {
@@ -62,10 +70,12 @@ function validateQuestion(question) {
       .min(3)
       .max(3)
       .required(),
+    layoutType: Joi.number().required(),
+    semanticQuestion: Joi.string(),
+    semanticAnswer: Joi.string(),
     question: Joi.string()
       .min(5)
       .required(),
-    layoutType: Joi.array().required(),
     trainingQuestion: Joi.array(),
     answers: Joi.array().required(),
     correctNumber: Joi.number().min(0),
