@@ -17,6 +17,8 @@ router.get("/me", [auth], async (req, res) => {
   const user = await User.findById(req.user._id)
     .select("-password -__v")
     .sort("finishedCards.topicID");
+
+  _.sortBy(user.finishedCards, ["user.finishedCards"]);
   res.send(user);
 });
 
