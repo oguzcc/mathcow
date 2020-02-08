@@ -18,8 +18,8 @@ router.get("/me", [auth], async (req, res) => {
     .select("-password -__v")
     .sort("finishedCards.topicID");
 
-  const result = _.sortBy(user.finishedCards, ["topicID", "cardID"]);
-  res.send(result);
+  _.sortBy(user.finishedCards, ["topicID", "cardID"]);
+  res.send(user);
 });
 
 router.post("/", async (req, res) => {
