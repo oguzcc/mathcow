@@ -18,7 +18,7 @@ router.get("/me", [auth], async (req, res) => {
     .select("-password -__v")
     .sort("finishedCards.topicID");
 
-  _.sortBy(user.finishedCards, ["user.finishedCards"]);
+  _.sortBy(user.finishedCards, ["topicID"]);
   res.send(user);
 });
 
