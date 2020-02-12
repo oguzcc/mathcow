@@ -16,9 +16,8 @@ router.get("/", [auth], async (req, res) => {
 router.get("/me", [auth], async (req, res) => {
   const user = await User.findById(req.user._id)
     .select("-password -__v")
-    .sort("finishedCards.topicID");
+    .populate("avatar", "avatarSvg");
 
-  _.sortBy(user.finishedCards, ["topicID", "cardID"]);
   res.send(user);
 });
 
@@ -50,11 +49,13 @@ router.post("/guest", async (req, res) => {
   const name = "guest" + date.toString();
   const email = name + "@mathcow.com";
   const password = date.toString();
+  const avatar = "5e446b6a9608ec4934a599ef";
 
   const user = new User({
     name: name,
     email: email,
-    password: password
+    password: password,
+    avatar: avatar
   });
 
   const salt = await bcrypt.genSalt(10);

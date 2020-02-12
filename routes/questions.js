@@ -41,7 +41,9 @@ router.get("/:topicID/:cardID", [auth], async (req, res) => {
   const question = await Question.find({
     topicID: topicID,
     cardID: cardID
-  }).select("-answers._id -__v");
+  })
+    .select("-answers._id -__v")
+    .sort("questionID");
 
   if (!question)
     return res
@@ -56,7 +58,9 @@ router.get("/:topicID", [auth], async (req, res) => {
 
   const question = await Question.find({
     topicID: topicID
-  }).select("-answers._id -__v");
+  })
+    .select("-answers._id -__v")
+    .sort("topicID");
 
   if (!question)
     return res

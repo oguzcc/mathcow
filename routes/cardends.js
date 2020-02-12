@@ -24,6 +24,8 @@ router.post("/", [auth], async (req, res) => {
   const bodyCQ = req.body.correctQuestions;
   const bodyWQ = req.body.wrongQuestions;
   const bodyFC0 = req.body.finishedCards[0];
+  const topicID = bodyFC0.topicID;
+  const cardID = req.body.finishedCards[0].cards[0].cardID;
 
   user.correctQuestions = user.correctQuestions + bodyCQ;
   user.wrongQuestions = user.wrongQuestions + bodyWQ;
@@ -34,16 +36,45 @@ router.post("/", [auth], async (req, res) => {
   user.coins = user.coins + remainingTime / 2;
   user.level = user.level + user.points;
 
-  if (!_.some(user.finishedCards, bodyFC0)) {
-    user.finishedCards.push(bodyFC0);
-  }
+  // if (!_.some(user.finishedCards, bodyFC0)) {
+  //   user.finishedCards.push(bodyFC0);
+  // }
 
   let iofc = _.findIndex(user.finishedCards, {
-    topicID: bodyFC0.topicID,
-    cardID: bodyFC0.cardID
+    topicID: topicID
   });
 
-  user.finishedCards[iofc].correctInCard =
+  let iofc2;
+
+  if (iofc != -1) {
+    iofc2 = _.findIndex(user.finishedCards[iofc].cards, {
+      cardID: cardID
+    });
+    if (iofc2 == -1) {
+      user.finishedCards[iofc].cards.push(bodyFC0.cards[0]);
+      iofc2 = _.findIndex(user.finishedCards[iofc].cards, {
+        cardID: cardID
+      });
+    }
+  } else {
+    user.finishedCards.push(bodyFC0);
+    iofc = _.findIndex(user.finishedCards, {
+      topicID: topicID
+    });
+    iofc2 = 0;
+  }
+
+  user.finishedCards[iofc].cards[iofc2].correctInCard =
+    user.finishedCards[iofc].cards[iofc2].correctInCard + bodyCQ;
+  user.finishedCards[iofc].cards[iofc2].wrongInCard =
+    user.finishedCards[iofc].cards[iofc2].wrongInCard + bodyWQ;
+  user.finishedCards[iofc].cards[iofc2].accuracyPercentageInCard =
+    (user.finishedCards[iofc].cards[iofc2].correctInCard /
+      (user.finishedCards[iofc].cards[iofc2].correctInCard +
+        user.finishedCards[iofc].cards[iofc2].wrongInCard)) *
+    100;
+
+  /*  user.finishedCards[iofc].correctInCard =
     user.finishedCards[iofc].correctInCard + bodyCQ;
   user.finishedCards[iofc].wrongInCard =
     user.finishedCards[iofc].wrongInCard + bodyWQ;
@@ -51,7 +82,7 @@ router.post("/", [auth], async (req, res) => {
     (user.finishedCards[iofc].correctInCard /
       (user.finishedCards[iofc].correctInCard +
         user.finishedCards[iofc].wrongInCard)) *
-    100;
+    100; */
 
   /* for (let i = 0; i < req.body.finishedCards.length; i++) {
     if (!_.some(user.finishedCards, req.body.finishedCards[i])) {

@@ -2,6 +2,7 @@ const express = require("express");
 const questions = require("../routes/questions");
 const topics = require("../routes/topics");
 const users = require("../routes/users");
+const avatars = require("../routes/avatars");
 const cardends = require("../routes/cardends");
 const restful = require("../routes/restful");
 const rests = require("../routes/rests");
@@ -14,6 +15,7 @@ module.exports = function(app) {
   app.use("/api/questions", questions);
   app.use("/api/topics", topics);
   app.use("/api/users", users);
+  app.use("/api/avatars", avatars);
   app.use("/api/cardends", cardends);
   app.use("/api/restful", restful);
   app.use("/api/rests", rests);

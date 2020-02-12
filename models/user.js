@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const { Avatar } = require("./avatar");
 const { finishedCardSchema } = require("./finishedCard");
 
 const userSchema = new mongoose.Schema({
@@ -22,6 +23,17 @@ const userSchema = new mongoose.Schema({
     maxlength: 255,
     unique: true
   },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 5,
+    maxlength: 1024
+  },
+  avatar: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Avatar"
+  },
   lastOnline: {
     type: Date,
     default: Date.now
@@ -29,13 +41,6 @@ const userSchema = new mongoose.Schema({
   location: {
     type: String,
     default: ""
-  },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-    minlength: 5,
-    maxlength: 1024
   },
   isAdmin: {
     type: Boolean,
@@ -114,6 +119,7 @@ function validateUser(user) {
       .max(255)
       .trim()
       .required(),
+    avatar: Joi.string(),
     isAdmin: Joi.boolean(),
     isGold: Joi.boolean(),
     points: Joi.number().min(0),

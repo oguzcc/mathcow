@@ -2,8 +2,6 @@ const { Topic, validate } = require("../models/topic");
 const admin = require("../middleware/admin");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
-const winston = require("winston");
-const validateObjectId = require("../middleware/validateObjectId");
 const express = require("express");
 const router = express.Router();
 
