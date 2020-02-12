@@ -18,6 +18,15 @@ router.get("/me", [auth], async (req, res) => {
     .select("-password -__v")
     .populate("avatar", "avatarSvg");
 
+  // user.finishedCards.sort(function(a, b) {
+  //   return a.topicID > b.topicID ? 1 : b.topicID > a.topicID ? -1 : 0;
+  // });
+
+  user.finishedCards.sort(function(a, b) {
+    return a.topicID - b.topicID;
+  });
+
+  await user.save();
   res.send(user);
 });
 

@@ -74,6 +74,10 @@ router.post("/", [auth], async (req, res) => {
         user.finishedCards[iofc].cards[iofc2].wrongInCard)) *
     100;
 
+  user.finishedCards.sort(function(a, b) {
+    return a.topicID - b.topicID;
+  });
+
   /*  user.finishedCards[iofc].correctInCard =
     user.finishedCards[iofc].correctInCard + bodyCQ;
   user.finishedCards[iofc].wrongInCard =
