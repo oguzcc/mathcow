@@ -26,7 +26,6 @@ router.get("/me", [auth], async (req, res) => {
     return a.topicID - b.topicID;
   });
 
-  await user.save();
   res.send(user);
 });
 
