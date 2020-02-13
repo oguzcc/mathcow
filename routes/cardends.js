@@ -78,6 +78,12 @@ router.post("/", [auth], async (req, res) => {
     return a.topicID - b.topicID;
   });
 
+  for (let i = 0; i < user.finishedCards.length; i++) {
+    user.finishedCards[i].cards.sort(function(a, b) {
+      return a.cardID - b.cardID;
+    });
+  }
+
   /*  user.finishedCards[iofc].correctInCard =
     user.finishedCards[iofc].correctInCard + bodyCQ;
   user.finishedCards[iofc].wrongInCard =
