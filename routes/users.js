@@ -26,6 +26,12 @@ router.get("/me", [auth], async (req, res) => {
     return a.topicID - b.topicID;
   });
 
+  for (let i = 0; i < user.finishedCards.length; i++) {
+    user.finishedCards[i].cards.sort(function(a, b) {
+      return a.cardID - b.cardID;
+    });
+  }
+
   res.send(user);
 });
 
