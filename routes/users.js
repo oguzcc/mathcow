@@ -2,14 +2,30 @@ const auth = require("../middleware/auth");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const { User, validate } = require("../models/user");
+const { Avatar } = require("../models/avatar");
 const validateObjectId = require("../middleware/validateObjectId");
 const express = require("express");
 const router = express.Router();
 
 router.get("/", [auth], async (req, res) => {
+  const user = await User.findById(req.user._id)
+    .select("name avatar level coins points location")
+    .populate("avatar", "avatarSvg");
+
   const users = await User.find()
-    .select("-email -password -finishedCards._id -__v")
+    .select("name avatar level coins points location")
+    .populate("avatar", "avatarSvg")
+    .limit(3)
     .sort("-points");
+
+  let isUserTopTen = _.findIndex(users, {
+    name: req.user.name
+  });
+
+  if (isUserTopTen == -1) {
+    users.push(user);
+  }
+
   res.send(users);
 });
 
@@ -111,7 +127,8 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
       $set: {
         name: req.body.name,
         email: req.body.email,
-        password: password
+        password: password,
+        avatar: req.body.avatar
       }
     },
     { new: true }
@@ -120,7 +137,7 @@ router.patch("/:id", [auth, validateObjectId], async (req, res) => {
   const token = result.generateAuthToken();
   res
     .header("x-auth-token", token)
-    .send(_.pick(result, ["_id", "name", "email", "isAdmin", "isGold"]));
+    .send(_.pick(result, ["_id", "name", "avatar", "isAdmin", "isGold"]));
 });
 
 module.exports = router;
